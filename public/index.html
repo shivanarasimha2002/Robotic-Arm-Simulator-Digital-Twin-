@@ -1,0 +1,85 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="importmap">
+            {
+              "imports": {
+                "three": "https://unpkg.com/three@0.162.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.162.0/examples/jsm/"
+              }
+            }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <script type="module" src="main.js"></script>
+    <canvas class="webgl" style="height: 100%;width: 50%;background-color: black;border-radius: 10%;"></canvas><br>
+    <pre style="position: absolute;left: 51%;top: 25%;">
+    <input type="checkbox" id="pos" onclick="pos()" unchecked> set position
+    <script>
+    function pos() {
+       var checkBox = document.getElementById("pos");
+       var text = document.getElementById("addpos");
+       if (checkBox.checked == true){
+         text.style.display = "block";
+       } else {
+       text.style.display = "none";
+       }
+       } 
+    </script>
+    <form action="/position" id="addpos" method="post" style="display : none"><h3>
+        enter left 1 value:  <input type="number" name="left1"><br><br>
+        enter left 2 value:  <input type="number"name="left2"><br><br>
+        enter right 1 value: <input type="number" name="right1"><br><br>
+        enter right 2 value: <input type="number" name="right2"><br><br>
+        enter right 3 value: <input type="number" name="right3"><br><br>
+        enter right 4 value: <input type="number" name="right4"><br><br>
+        enter x value:       <input type="number" name="x"><br><br>
+        enter y value:       <input type="number" name="y"><br><br>
+        </h3>
+        <button type="submit">Submit</button>
+    </form>
+    <input type="checkbox" id="add" onclick="add()" unchecked> add volume
+    <script>
+    function add() {
+       var checkBox = document.getElementById("add");
+       var text = document.getElementById("addspec");
+       if (checkBox.checked == true){
+         text.style.display = "block";
+       } else {
+       text.style.display = "none";
+       }
+       } 
+    </script>
+    <form action="/addvolume" id="addspec" method="post" style="display : none"><h3>
+        enter work volume name <input type="text" name="addname"><br><br>
+        enter length(x axis):  <input type="number" name="xl"><br><br>
+        enter breadth(y axis): <input type="number"name="yl"><br><br>
+        enter height(z axis):  <input type="number" name="zl"><br><br>
+        enter x-dist:          <input type="number" name="xdist"><br><br>
+        enter y-dist:          <input type="number"name="ydist"><br><br>
+        enter z-dist:          <input type="number" name="zdist"><br><br>
+        </h3>
+         <button type="submit">Submit</button>
+    </form>
+    <input type="checkbox" id="remove" onclick="remove()" unchecked> Remove volume
+    <script>
+    function remove() {
+       var checkBox = document.getElementById("remove");
+       var text = document.getElementById("removename");
+       if (checkBox.checked == true){
+         text.style.display = "block";
+       } else {
+       text.style.display = "none";
+       }
+       } 
+    </script>
+    <form action="/removevolume" id="removename" method="post" style="display : none"><h3>
+        enter work volume name <input type="text" name="removename"><br><br>
+        </h3>
+         <button type="submit">Submit</button>
+    </form>
+    </pre>
+</body>
+</html>
